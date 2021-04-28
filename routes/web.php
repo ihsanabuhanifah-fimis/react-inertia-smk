@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,18 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::get('/profile', function () {
         return Inertia::render('Profile');
     })->name('profile');
+    Route::get('/two-factor-autentication', function (Request $request) {
+        return Inertia::render('TwoFactorAuth', [
+          
+            'recovery' => $request->user()->two_factor_secret !== null ?   $request->user()->recoveryCodes() : [],
+            'qrCode' => $request->user()->two_factor_secret !== null ?   $request->user()->twoFactorQrCodeSvg() : null,
+            
+
+          
+            
+        ]);
+    })->name('two.factor');
+  
     Route::get('/', function () {
         return Inertia::render('Home');
     })->name('home');

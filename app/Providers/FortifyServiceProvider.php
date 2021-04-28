@@ -43,6 +43,20 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetPasswordView(function ($request) {
             return Inertia::render('ResetPassword', ['request' => $request]);
         });
+        Fortify::twoFactorChallengeView(function () {
+            return Inertia::render('TwoFactorChallenge'); 
+        });
+        Fortify::confirmPasswordView(function (Request $request) {
+            return Inertia::render('TwoFactorAuth', [
+          
+                'recovery' => $request->user()->two_factor_secret !== null ?   $request->user()->recoveryCodes() : [],
+                'qrCode' => $request->user()->two_factor_secret !== null ?   $request->user()->twoFactorQrCodeSvg() : null,
+                'password_confirm' => true
+    
+              
+                
+            ]);
+        });
 
         RateLimiter::for('login', function (Request $request) {
             return Limit::perMinute(5)->by($request->email.$request->ip());

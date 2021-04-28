@@ -3742,6 +3742,30 @@ var Login = function Login(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/PasswordConfirmation.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/Pages/PasswordConfirmation.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+var PasswordConfirmation = function PasswordConfirmation() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    children: "ok"
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PasswordConfirmation);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Profile.jsx":
 /*!****************************************!*\
   !*** ./resources/js/Pages/Profile.jsx ***!
@@ -4257,6 +4281,283 @@ var ResetPassword = function ResetPassword(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/TwoFactorAuth.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/Pages/TwoFactorAuth.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./resources/js/components/Layout/index.jsx");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles */ "./resources/js/styles.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _components_Modals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Modals */ "./resources/js/components/Modals/index.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+var TwoFactorAuth = function TwoFactorAuth(props) {
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(''),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      password = _React$useState2[0],
+      setPassword = _React$useState2[1];
+
+  console.log(props);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_helmet__WEBPACK_IMPORTED_MODULE_1__.Helmet, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("title", {
+        children: "Two Factor auth"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: ["Your Two actor Authentocatoin : ", props.user.two_factor_secret === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+        className: "bg-red-500 px-4 py-2 rounded-sm font-bold text-white",
+        children: "Disable"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+        className: "bg-green-500 px-4 py-2 rounded-sm font-bold text-white",
+        children: "Enable"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      className: "flex flex-col justify-center mt-10 mb-4",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "items-center",
+        children: props.qrCode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+          dangerouslySetInnerHTML: {
+            __html: props.qrCode
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        className: "items-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+          className: "text-xl",
+          children: "Your Recovery Code"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("ol", {
+          children: props.recovery.map(function (code) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
+              children: code
+            }, code);
+          })
+        })]
+      })]
+    }), props.user.two_factor_secret === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.InertiaLink, {
+      className: _styles__WEBPACK_IMPORTED_MODULE_3__.styles.classNameButton("bg-green-400"),
+      href: "/user/two-factor-authentication",
+      method: "post",
+      as: "button",
+      type: "button",
+      children: "Enable"
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.InertiaLink, {
+      className: _styles__WEBPACK_IMPORTED_MODULE_3__.styles.classNameButton("bg-red-400"),
+      href: "/user/two-factor-authentication",
+      method: "delete",
+      as: "button",
+      type: "button",
+      children: "Disable"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      className: "absolute z-10 w-full h-full",
+      children: props.password_confirm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+          value: password,
+          onChange: function onChange(e) {
+            setPassword(e.target.value);
+          },
+          className: _styles__WEBPACK_IMPORTED_MODULE_3__.styles.classNameInput,
+          type: "text"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.InertiaLink, {
+          className: _styles__WEBPACK_IMPORTED_MODULE_3__.styles.classNameButton("bg-red-400"),
+          href: "/user/confirm-password",
+          method: "post",
+          data: {
+            password: password
+          },
+          as: "button",
+          type: "button",
+          children: "Disable"
+        })]
+      }) : null
+    })]
+  });
+};
+
+TwoFactorAuth.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__.default, {
+    user: page.props.user,
+    children: page
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TwoFactorAuth);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/TwoFactorChallenge.jsx":
+/*!***************************************************!*\
+  !*** ./resources/js/Pages/TwoFactorChallenge.jsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles */ "./resources/js/styles.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+var TwoFactorChallenge = function TwoFactorChallenge() {
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      codeEnable = _React$useState2[0],
+      setCodeEnable = _React$useState2[1];
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0__.useState(""),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      code = _React$useState4[0],
+      setCode = _React$useState4[1];
+
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0__.useState(""),
+      _React$useState6 = _slicedToArray(_React$useState5, 2),
+      recovery_code = _React$useState6[0],
+      setRecovery_code = _React$useState6[1];
+
+  var submit = function submit(e) {
+    e.preventDefault();
+    var payload = {
+      code: code
+    };
+    console.log(payload);
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route("two-factor.login"), payload);
+  };
+
+  var submit2 = function submit2(e) {
+    e.preventDefault();
+    var payload = {
+      recovery_code: recovery_code
+    };
+    console.log(payload);
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post("/two-factor-challenge", payload, {
+      onError: function onError() {
+        console.log("erro");
+      },
+      onSuccess: function onSuccess() {
+        console.log("ok");
+      }
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "flex h-screen border  ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        id: "page1",
+        className: "w-4/5 flex items-center order-1  px-20",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: " w-full",
+          children: [codeEnable ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+            onSubmit: submit,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              className: _styles__WEBPACK_IMPORTED_MODULE_1__.styles.classNameLabel,
+              htmlFor: "code",
+              children: "enter yout code"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              onChange: function onChange(e) {
+                setCode(e.target.value);
+              },
+              value: code,
+              className: _styles__WEBPACK_IMPORTED_MODULE_1__.styles.classNameInput,
+              type: "text",
+              placeholder: "enter your code"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              className: _styles__WEBPACK_IMPORTED_MODULE_1__.styles.classNameButton("bg-purple-700"),
+              children: "Login"
+            })]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+            onSubmit: submit2,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              className: _styles__WEBPACK_IMPORTED_MODULE_1__.styles.classNameLabel,
+              htmlFor: "code",
+              children: "enter your recovert code"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              onChange: function onChange(e) {
+                setRecovery_code(e.target.value);
+              },
+              value: recovery_code,
+              id: "code",
+              className: _styles__WEBPACK_IMPORTED_MODULE_1__.styles.classNameInput,
+              type: "text",
+              placeholder: "enter your recovery code"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "submit",
+              className: _styles__WEBPACK_IMPORTED_MODULE_1__.styles.classNameButton("bg-purple-700"),
+              children: "Login"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            onClick: function onClick() {
+              setCodeEnable(!codeEnable);
+            },
+            className: "capitalize underline focus:outline-none",
+            children: codeEnable ? 'use Recovery Code' : 'use Code'
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        id: "page2",
+        className: "h-full w-full bg-purple-700 order-2"
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TwoFactorChallenge);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Users.jsx":
 /*!**************************************!*\
   !*** ./resources/js/Pages/Users.jsx ***!
@@ -4556,6 +4857,99 @@ var Layout = function Layout(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Modals/index.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/components/Modals/index.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var Modal = function Modal() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      className: "fixed z-10 inset-0 overflow-y-auto",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          className: "fixed inset-0 transition-opacity",
+          "aria-hidden": "true",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            className: "absolute inset-0 bg-gray-500 opacity-75"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+          className: "hidden sm:inline-block sm:align-middle sm:h-screen",
+          "aria-hidden": "true",
+          children: "\u200B"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          className: "inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full",
+          role: "dialog",
+          "aria-modal": "true",
+          "aria-labelledby": "modal-headline",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            className: "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+              className: "sm:flex sm:items-start",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                className: "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+                  className: "h-6 w-6 text-red-600",
+                  xmlns: "http://www.w3.org/2000/svg",
+                  fill: "none",
+                  viewBox: "0 0 24 24",
+                  stroke: "currentColor",
+                  "aria-hidden": "true",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    strokeWidth: 2,
+                    d: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: "mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+                  className: "text-lg leading-6 font-medium text-gray-900",
+                  id: "modal-headline",
+                  children: "Deactivate account"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "mt-2",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+                    className: "text-sm text-gray-500",
+                    children: "Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone."
+                  })
+                })]
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+              type: "button",
+              className: "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm",
+              children: "Deactivate"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+              type: "button",
+              className: "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
+              children: "Cancel"
+            })]
+          })]
+        })]
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Modal);
+
+/***/ }),
+
 /***/ "./resources/js/components/Sidebar/index.jsx":
 /*!***************************************************!*\
   !*** ./resources/js/components/Sidebar/index.jsx ***!
@@ -4609,6 +5003,9 @@ var Sidebar = function Sidebar() {
   }, {
     menu: "Profile",
     href: "/profile"
+  }, {
+    menu: "Two Factor",
+    href: "/two-factor-autentication"
   }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -38453,12 +38850,18 @@ var map = {
 	"./Home.jsx": "./resources/js/Pages/Home.jsx",
 	"./Login": "./resources/js/Pages/Login.jsx",
 	"./Login.jsx": "./resources/js/Pages/Login.jsx",
+	"./PasswordConfirmation": "./resources/js/Pages/PasswordConfirmation.jsx",
+	"./PasswordConfirmation.jsx": "./resources/js/Pages/PasswordConfirmation.jsx",
 	"./Profile": "./resources/js/Pages/Profile.jsx",
 	"./Profile.jsx": "./resources/js/Pages/Profile.jsx",
 	"./Register": "./resources/js/Pages/Register.jsx",
 	"./Register.jsx": "./resources/js/Pages/Register.jsx",
 	"./ResetPassword": "./resources/js/Pages/ResetPassword.jsx",
 	"./ResetPassword.jsx": "./resources/js/Pages/ResetPassword.jsx",
+	"./TwoFactorAuth": "./resources/js/Pages/TwoFactorAuth.jsx",
+	"./TwoFactorAuth.jsx": "./resources/js/Pages/TwoFactorAuth.jsx",
+	"./TwoFactorChallenge": "./resources/js/Pages/TwoFactorChallenge.jsx",
+	"./TwoFactorChallenge.jsx": "./resources/js/Pages/TwoFactorChallenge.jsx",
 	"./Users": "./resources/js/Pages/Users.jsx",
 	"./Users.jsx": "./resources/js/Pages/Users.jsx"
 };

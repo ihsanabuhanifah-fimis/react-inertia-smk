@@ -34,15 +34,20 @@ class HandleInertiaRequests extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+    
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
             'user' => fn () => $request->user()
-                ? $request->user()->only('id', 'name', 'email', 'image')
+                ? $request->user()->only('id', 'name', 'email', 'image', 'two_factor_secret')
                 : null,
-                'flash' => [
+            'flash' => [
                     'message' => fn () => $request->session()->get('message')
                 ],
+            'status' => $request->session()->get('status'),
+           
+            
+          
         ]);
     }
 }

@@ -10,6 +10,8 @@ const Sidebar = () => {
         { menu: "Home", href: "/" },
         { menu: "Users", href: "/users" },
         { menu: "Profile", href: "/profile" },
+        { menu: "Two Factor", href: "/two-factor-autentication" },
+        
     ];
 
     return (

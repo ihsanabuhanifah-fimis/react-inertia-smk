@@ -31,6 +31,7 @@
     "dependencies": {
         "@inertiajs/inertia": "^0.8.4",
         "@inertiajs/inertia-react": "^0.5.3",
+        "qrcode.react": "^1.0.1",
         "react-helmet": "^6.1.0",
         "simple-react-lightbox": "^3.6.3",
         "sweetalert": "^2.1.2"
